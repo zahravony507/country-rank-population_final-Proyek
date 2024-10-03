@@ -1,0 +1,129 @@
+.home-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: row; /* Aligning content horizontally */
+    gap: 20px;
+}
+
+.left-container {
+    flex: 1; /* Taking up the left side space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 16px; /* Sedikit lebih besar dari sebelumnya */
+    color: #000000;
+    margin-bottom: 15px; /* Sedikit lebih besar dari sebelumnya */
+    line-height: 1.5; /* Menambah jarak antar baris untuk keterbacaan */
+    padding: 10px 0; /* Menambah ruang di atas dan bawah quote */
+  }
+
+.table-container {
+    flex: 1; /* Taking up the right side space */
+    overflow-y: scroll; /* Adding scroll behavior */
+    height: 540px; /* Setting a fixed height to make the scrollbar visible */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.population-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Making sure columns have equal width */
+}
+
+.population-table th,
+.population-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.population-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.population-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Styling scrollbar */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column; /* Stack content vertically on smaller screens */
+        align-items: center; /* Center align for a cleaner look */
+    }
+
+    h1 {
+        font-size: 28px; /* Slightly smaller heading on smaller screens */
+    }
+
+    .quote {
+        font-size: 14px; /* Adjust font size of quote */
+        text-align: center; /* Center the quote */
+    }
+
+    .table-container {
+        width: 100%;
+        margin-top: 20px; /* Add some margin to separate the table from the quote */
+        height: auto; /* Adjust height for smaller screens */
+    }
+
+    .population-table {
+        font-size: 14px; /* Slightly smaller font size for smaller screens */
+    }
+
+    .population-table th,
+    .population-table td {
+        padding: 8px; /* Adjust padding for a better fit */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Even smaller heading for very small screens */
+    }
+
+    .quote {
+        font-size: 12px; /* Smaller quote for smaller screens */
+    }
+
+    .table-container {
+        height: auto; /* Allow table to take up full height as needed */
+    }
+}

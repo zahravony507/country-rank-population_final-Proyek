@@ -1,0 +1,110 @@
+.comparison-results {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+.comparison-results h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.comparison-results p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.comparison-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.earth-image-container {
+  flex: 1;
+  max-width: 300px;
+  padding: 20px;
+}
+
+.earth-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+.results-content {
+  flex: 2;
+  width: 100%;
+}
+
+.countries-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.country-info {
+  flex: 1 1 300px;
+  max-width: 500px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.country-info h2 { /* mengatur Ukuran tulisan pada colom*/
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.flag { /*  mengatur ukuran bendera  */
+  width: 300px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.country-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.country-info li {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .comparison-content {
+    flex-direction: column;
+  }
+
+  .countries-container {
+    flex-direction: column;
+  }
+
+  .country-info {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .comparison-results h1 {
+    font-size: 24px;
+  }
+
+  .comparison-results p {
+    font-size: 16px;
+  }
+
+  .country-info {
+    padding: 15px;
+  }
+
+  .flag {
+    width: 80px;
+  }
+}

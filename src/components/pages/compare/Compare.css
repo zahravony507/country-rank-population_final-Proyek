@@ -1,0 +1,89 @@
+.compare-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 50px;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 60px;
+}
+
+.content-wrapper {
+  background-color: #383636;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 50%;
+}
+
+.form-section {
+  padding-right: 40px;
+}
+
+.quote {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #f7f7f7;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #dde4f3;
+  color: #333333;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+.submit-button:hover {
+  background-color: #D0D0D0;
+}
+
+.illustration {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 40%;
+}
+
+.earth-image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .content-wrapper {
+    width: 100%;
+  }
+
+  .illustration {
+    position: static;
+    width: 100%;
+    transform: none;
+    margin-top: 20px;
+  }
+
+  .earth-image {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+}
