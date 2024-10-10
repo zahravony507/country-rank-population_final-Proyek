@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchCountries, fetchCountryList } from './countryActions';
 import './Compare.css';
-import earthImage from '../../../foto1.png';
 
 const Compare = () => {
   const [country1, setCountry1] = useState(''); // Input negara pertama
@@ -25,6 +24,13 @@ const Compare = () => {
   // Fungsi untuk menangani submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Cek jika salah satu input negara kosong
+    if (!country1 || !country2) {
+      alert('Please provide both country names.');
+      return;
+    }
+
     await dispatch(fetchCountries(country1, country2));
 
     // Jika tidak ada error, navigasi ke halaman perbandingan
@@ -60,8 +66,8 @@ const Compare = () => {
     <div className="compare-container">
       <h1>Form Country Compare</h1>
       <p className="quote">
-            "Would you like to compare two countries? Please provide two country names"
-          </p>
+        "Would you like to compare two countries? Please provide two country names"
+      </p>
       <div className="content-wrapper">
         <div className="form-section">
           <form onSubmit={handleSubmit}>
@@ -104,7 +110,11 @@ const Compare = () => {
                 </ul>
               )}
             </div>
-            <button type="submit" className="submit-button">Submit</button>
+
+            {/* Tombol Submit, akan disable jika salah satu input kosong */}
+            <button type="submit" className="submit-button" disabled={!country1 || !country2}>
+              Submit
+            </button>
           </form>
         </div>
       </div>
