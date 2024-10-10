@@ -5,27 +5,32 @@ import './ComparisonResults.css';
 import { fetchCountries } from './countryActions';
 import earthImage from '../../../foto1.png';
 
+// Komponen utama untuk menampilkan hasil perbandingan negara
 const ComparisonResults = () => {
-  // Mengambil kode negara dari URL
+  // Mengambil parameter dari URL (code1 dan code2) melalui React Router
   const { code1, code2 } = useParams();
+
+  // Mengambil fungsi dispatch dari Redux untuk memanggil action
   const dispatch = useDispatch();
-  // Mengambil data negara dan error dari Redux store
+
+  // Mengambil data negara dan error dari state Redux melalui selector
   const { country1, country2, error } = useSelector((state) => state.country);
 
+  // useEffect digunakan untuk memanggil action fetchCountries ketika komponen ini di-render atau kode negara berubah
   useEffect(() => {
-    // Mengubah tanda hubung kembali menjadi spasi dalam kode negara
+    // Mengganti karakter '-' dengan spasi dalam kode negara
     const formattedCode1 = code1.replace(/-/g, ' ');
     const formattedCode2 = code2.replace(/-/g, ' ');
 
-    // Memanggil action untuk mengambil data negara
+    // Memanggil action fetchCountries untuk mengambil data negara berdasarkan kode negara
     dispatch(fetchCountries(formattedCode1, formattedCode2));
-  }, [dispatch, code1, code2]);
+  }, [dispatch, code1, code2]); // Meng-define dependency untuk effect agar dijalankan setiap code1 atau code2 berubah
 
-  // Teks konstan untuk header dan kutipan
-  const HEADER_TEXT = "COUNTRY POPULATION COMPARISON ";
-  const QUOTE_TEXT = " ";
+  // Konstanta untuk teks header dan quote
+  const HEADER_TEXT = "Country Comparison ";
+  const QUOTE_TEXT = "Discover key between selected countries";
 
-  // Menampilkan pesan error jika terjadi kesalahan
+  // Jika ada error dalam pengambilan data, tampilkan pesan error
   if (error) {
     return (
       <div className="error-message">
@@ -34,7 +39,7 @@ const ComparisonResults = () => {
     );
   }
 
-  // Menampilkan pesan jika data negara belum tersedia
+  // Jika data negara belum tersedia, tampilkan pesan tidak ada data
   if (!country1 || !country2) {
     return (
       <div className="no-data-message">
@@ -43,11 +48,14 @@ const ComparisonResults = () => {
     );
   }
 
-  // Fungsi untuk merender informasi negara
+  // Fungsi untuk menampilkan informasi detail dari negara
   const renderCountryInfo = (country) => (
     <div className="country-info">
+      {/* Menampilkan gambar bendera negara */}
       <img src={country.flags.svg} alt={`Bendera ${country.name.common}`} className="flag" />
-      <h2>{country.name.common}</h2>
+      {/* Menampilkan nama negara dan kodenya */}
+      <h2>{country.name.common} ({country.cca3})</h2>
+      {/* Daftar informasi negara */}
       <ul>
         <li><strong>Populasi:</strong> {country.population.toLocaleString()}</li>
         <li><strong>Luas Area:</strong> {country.area.toLocaleString()} km²</li>
@@ -58,16 +66,16 @@ const ComparisonResults = () => {
     </div>
   );
 
-  // Render komponen utama
+  // JSX yang merender halaman hasil perbandingan
   return (
     <div className="comparison-results">
+      {/* Menampilkan header dan quote */}
       <h1>{HEADER_TEXT}</h1>
       <p>{QUOTE_TEXT}</p>
+      {/* Bagian utama yang berisi gambar bumi dan hasil perbandingan negara */}
       <div className="comparison-content">
-        <div className="earth-image-container">
-          <img src={earthImage} alt="Smiling Earth" className="earth-image" />
-        </div>
         <div className="results-content">
+          {/* Menampilkan informasi kedua negara yang dibandingkan */}
           <div className="countries-container">
             {renderCountryInfo(country1)}
             {renderCountryInfo(country2)}
@@ -78,4 +86,5 @@ const ComparisonResults = () => {
   );
 };
 
+// Ekspor komponen agar dapat digunakan di tempat lain
 export default ComparisonResults;

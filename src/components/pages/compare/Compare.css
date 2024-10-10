@@ -1,89 +1,106 @@
 .compare-container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 50px;
-  font-family: Arial, sans-serif;
-  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 h1 {
   text-align: center;
-  color: #333;
-  margin-bottom: 60px;
+  color: #000;
+  margin-bottom: 20px;
 }
 
 .content-wrapper {
   background-color: #383636;
   border-radius: 20px;
-  padding: 50px;
+  padding: 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 50%;
-}
-
-.form-section {
-  padding-right: 40px;
+  text-align: center;
 }
 
 .quote {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 20px;
-  color: #f7f7f7;
+  color: #050505;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 90px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .input-field {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #555;
   border-radius: 15px;
   font-size: 14px;
+  background-color: #fff;
+  color: #000;
 }
 
 .submit-button {
   width: 100%;
   padding: 10px;
-  background-color: #dde4f3;
-  color: #333333;
+  margin-top: 10px;
+  background-color: #6cb465;
+  color: #ffffff;
   border: none;
-  border-radius: 20px;
+  border-radius: 60px;
   cursor: pointer;
   transition: background-color 0.2s;
   font-size: 14px;
 }
 
 .submit-button:hover {
-  background-color: #D0D0D0;
+  background-color: #5a9754;
 }
 
-.illustration {
+.suggestions-list {
   position: absolute;
-  top: 50%;
+  top: 100%;
+  left: 0;
   right: 0;
-  transform: translateY(-50%);
-  width: 40%;
+  background-color: #ffffff;
+  border: 1px solid #555;
+  border-top: none;
+  border-radius: 0 0 15px 15px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
 }
 
-.earth-image {
-  max-width: 100%;
-  height: auto;
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+  color: #000;
 }
 
-@media (max-width: 1024px) {
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 600px) {
+  .compare-container {
+    padding: 10px;
+  }
+
   .content-wrapper {
-    width: 100%;
+    padding: 20px;
   }
 
-  .illustration {
-    position: static;
-    width: 100%;
-    transform: none;
-    margin-top: 20px;
-  }
-
-  .earth-image {
-    max-width: 100%;
-    margin: 0 auto;
-    display: block;
+  .quote {
+    font-size: 14px; /* Reduce font size for smaller screens */
   }
 }
