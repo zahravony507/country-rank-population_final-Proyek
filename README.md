@@ -16,7 +16,7 @@ my step install to make projek
 4. npm install @reduxjs/toolkit react-redux
 
 
-Install Vercel CLI  vscode dengan:
+Install & deploy Vercel CLI  vscode dengan:
 
 1. npm install -g vercel
 2. vercel login
