@@ -1,21 +1,23 @@
 # react-navbar
+Follow these steps to set up the project locally:
+
+Clone the repository:
+
+1. git clone https://github.com/zahravony507/country-rank-population_final-Proyek
+2. npm install
+3. npm run dev
 
 
+my step install to make projek
+
+1. npm install
+2. npm i react-router-dom
+3. npm install axios
+4. npm install @reduxjs/toolkit react-redux
 
 
-Gunakan Vercel CLI untuk Debugging (Opsional)
-Jika masalah tetap ada, kamu bisa mencoba menggunakan Vercel CLI untuk melakukan deploy secara lokal dan melihat log lebih detail sebelum mempush ke GitHub.
+Install Vercel CLI  vscode dengan:
 
-Install Vercel CLI dengan:
-bash
-Copy code
-npm install -g vercel
-Login ke akun Vercel dengan:
-bash
-Copy code
-vercel login
-Jalankan deploy lokal:
-bash
-Copy code
-vercel --prod
-Dengan langkah-langkah ini, masalah Permission denied saat menjalankan vite build di Vercel seharusnya bisa teratasi.
+1. npm install -g vercel
+2. vercel login
+3. vercel --prod
